@@ -10,16 +10,25 @@ h2 {
   position: absolute;
   font-size: 33px;
   white-space: nowrap;
-  top: 265px;
-  left: 302px;
+  left: 20rem;
+  top: 12rem;
 }
 
 h4 {
   position: absolute;
   font-size: 50px;
-  left: 146px;
-  top: 192px;
+  top: 2 rem;
+  padding-top: 8rem;
+  padding-left: 12rem;
   white-space: nowrap;
+}
+
+.new-brandes {
+  font-size: 4em;
+  color: #fff;
+  position: absolute;
+  bottom: 9rem;
+  margin-left: 22rem;
 }
 
 .Shop-button {
@@ -41,8 +50,8 @@ h4 {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  top: 319px;
-  left: 433px;
+  top: 15rem;
+  left: 28rem;
 }
 
 .Shop-button::after,
@@ -112,8 +121,6 @@ h4 {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  /* border-radius: 0 0 50% 50%/ 0 0 100% 100%;
-  transform: scale(1.5); */
   z-index: -1;
 }
 .curved-header .logo {
@@ -199,10 +206,14 @@ h4 {
   border-radius: 20px;
 }
 
+.product-title {
+  color: whitesmoke;
+}
+
 .right-cart {
   position: fixed;
   top: 0;
-  right: 0;
+  right: -100%;
   width: 360px;
   min-height: 100vh;
   padding: 20px;
@@ -210,8 +221,8 @@ h4 {
   transition: 0.3s;
 }
 
-.right-cart.active{
-  right:0;
+.right-cart.active {
+  right: 0;
 }
 
 .cart-title {
