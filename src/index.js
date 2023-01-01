@@ -1,3 +1,6 @@
+import "./productCard.css";
+import "./style.css";
+
 //cart
 
 let cartIcon = document.querySelector("#cart-icon");
@@ -132,9 +135,8 @@ function updatetotal() {
     total = total + price * quantity;
   }
 
-    // fix if price got cents
-    total = Math.round(total * 100) / 100;
+  // fix if price got cents
+  total = Math.round(total * 100) / 100;
 
-    document.getElementsByClassName("total-price")[0].innerText = "$" + total;
-  
+  document.getElementsByClassName("total-price")[0].innerText = "$" + total;
 }
