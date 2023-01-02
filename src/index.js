@@ -1,6 +1,5 @@
-import "./productCard.css";
-import "./style.css";
-
+import "../src/style.css";
+import "../src/productCard.css";
 //cart
 
 let cartIcon = document.querySelector("#cart-icon");
@@ -26,21 +25,21 @@ if (document.readyState == "loading") {
 
 function ready() {
   //    remove items from cart
-  var removeCartButtons = document.getElementsByClassName("cart-remove");
-  for (var i = 0; i < removeCartButtons.length; i++) {
+  let removeCartButtons = document.getElementsByClassName("cart-remove");
+  for (let i = 0; i < removeCartButtons.length; i++) {
     var button = removeCartButtons[i];
     button.addEventListener("click", removeCartItem);
   }
   //quantity changes
 
-  var quantityInputs = document.getElementsByClassName("cart-quantity");
-  for (var i = 0; i < quantityInputs.length; i++) {
+  const quantityInputs = document.getElementsByClassName("cart-quantity");
+  for (let i = 0; i < quantityInputs.length; i++) {
     var input = quantityInputs[i];
     input.addEventListener("change", quantityChanged);
   }
   //add to cart
-  var addCart = document.getElementsByClassName("card-button");
-  for (var i = 0; i < addCart.length; i++) {
+  const addCart = document.getElementsByClassName("card-button");
+  for (let i = 0; i < addCart.length; i++) {
     var button = addCart[i];
     button.addEventListener("click", addCartClicked);
   }
@@ -69,7 +68,7 @@ function removeCartItem(event) {
 // quantity changes
 
 function quantityChanged(event) {
-  var input = event.target;
+  const input = event.target;
   if (isNaN(input.value) || input.value <= 0) {
     input.value = 1;
   }
@@ -77,20 +76,22 @@ function quantityChanged(event) {
 }
 //add to cart
 function addCartClicked(event) {
-  var button = event.target;
-  var shopProducts = button.parentElement;
-  var title = shopProducts.getElementsByClassName("product-title")[0].innerText;
-  var price = shopProducts.getElementsByClassName("price")[0].innerText;
-  var productImage = shopProducts.getElementsByClassName("product-img")[0].src;
+  const button = event.target;
+  const shopProducts = button.parentElement;
+  const title =
+    shopProducts.getElementsByClassName("product-title")[0].innerText;
+  const price = shopProducts.getElementsByClassName("price")[0].innerText;
+  const productImage =
+    shopProducts.getElementsByClassName("product-img")[0].src;
   addProductToCart(title, price, productImage);
   updatetotal();
 }
 
 function addProductToCart(title, price, productImage) {
-  var cartShopBox = document.createElement("div");
+  const cartShopBox = document.createElement("div");
   cartShopBox.classList.add("cart-box");
-  var cartItems = document.getElementsByClassName("cart-content")[0];
-  var cartItemsNames = cartItems.getElementsByClassName("card-product-title");
+  const cartItems = document.getElementsByClassName("cart-content")[0];
+  const cartItemsNames = cartItems.getElementsByClassName("card-product-title");
 
   for (let i = 0; i < cartItemsNames.length; i++) {
     // If found the item in cart, return!
@@ -102,7 +103,7 @@ function addProductToCart(title, price, productImage) {
     }
   }
 
-  var cartBoxContent = `
+  const cartBoxContent = `
      <img src="${productImage}" alt="" class="cart-img" />
      <div class="detail-box">
      <div class="card-product-title">${title}</div>
@@ -123,15 +124,15 @@ function addProductToCart(title, price, productImage) {
 // update total func
 
 function updatetotal() {
-  var cartContent = document.getElementsByClassName("cart-content")[0];
-  var cartBoxes = cartContent.getElementsByClassName("cart-box");
-  var total = 0;
-  for (var i = 0; i < cartBoxes.length; i++) {
-    var cartBox = cartBoxes[i];
-    var priceElement = cartBox.getElementsByClassName("cart-price")[0];
-    var quantityElemnt = cartBox.getElementsByClassName("cart-quantity")[0];
-    var price = parseFloat(priceElement.innerText.replace("$", ""));
-    var quantity = quantityElemnt.value;
+  const cartContent = document.getElementsByClassName("cart-content")[0];
+  const cartBoxes = cartContent.getElementsByClassName("cart-box");
+  const total = 0;
+  for (let i = 0; i < cartBoxes.length; i++) {
+    const cartBox = cartBoxes[i];
+    const priceElement = cartBox.getElementsByClassName("cart-price")[0];
+    const quantityElemnt = cartBox.getElementsByClassName("cart-quantity")[0];
+    const price = parseFloat(priceElement.innerText.replace("$", ""));
+    const quantity = quantityElemnt.value;
     total = total + price * quantity;
   }
 

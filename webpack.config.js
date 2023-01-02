@@ -1,23 +1,25 @@
 const path = require("path");
-
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
-  entry: "/build/main.js",
-  output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "build"),
+  mode: "development",
+  entry: {
+    bundle: path.resolve(__dirname, "src/index.js"),
   },
-
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js",
+  },
   module: {
-        rules: [
-            {
-                test:/\.css$/,
-                use:[
-                    'style-loader',
-                    'css-loader'
-                ]
-            }
-        ]
-  }
-
-
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      hash: true
+    }),
+  ],
 };
